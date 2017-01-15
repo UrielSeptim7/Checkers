@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.lang.Math;
+import java.util.List;
 
 /**
  * Write a description of class Gold here.
@@ -13,9 +14,11 @@ public class Gold extends Chackers
      * Act - do whatever the Gold wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-   private boolean _clicked = false;
-   private boolean _clicked2 = false;
-   
+    private boolean _clicked = false;
+    private boolean _clicked2 = false;
+    private int x = 0;
+    private int y = 0;
+    
     public void act() 
     {   
         if (_clicked)
@@ -31,6 +34,8 @@ public class Gold extends Chackers
                         if ( (_x > 0 + (i *80)) && (_x < 80 + ((i+1) *80)) && (_y > 0 + (j*80)) && (_y < 80 + ((j+1)*80)))
                         {
                             setLocation(40 + (i *80), 40 + j*80);
+                            //Далее проверка на шашку соперника
+                            //searchEnemy(x, y, 40 + (i *80), 40 + j*80);
                         }
                     }
                 }
@@ -43,8 +48,8 @@ public class Gold extends Chackers
         
         if(Greenfoot.mouseClicked(this) && !_clicked && !_clicked2)
         {
-            int x = getX();
-            int y = getY();
+            x = getX();
+            y = getY();
             setImage("white_2.png");
             _clicked = true;
         }
@@ -53,5 +58,22 @@ public class Gold extends Chackers
         {
             _clicked2 = false;
         }
-   }    
+    }
+    
+    public void searchEnemy(int x, int y, int _x, int _y)
+    {
+        if ( !(Math.abs(_x - x) == 80) && !(Math.abs(_y - y) == 80) )
+        {
+            int dx = _x - x;
+            int dy = _y - y;
+            Chackers cheker = (Chackers)getOneObjectAtOffset(dx, dy, Chackers.class);
+            cheker.setLocation(_x + 40, _y + 40);
+        }
+    }
+   
+    @Override 
+    public void destroy()
+    {
+        getWorld().removeObject(this);
+    }
 }

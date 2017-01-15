@@ -12,8 +12,10 @@ public class Black extends Chackers
      * Act - do whatever the Black wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-   private boolean _clicked = false;
-   private boolean _clicked2 = false;
+    private boolean _clicked = false;
+    private boolean _clicked2 = false;
+    private int x = 0;
+    private int y = 0;
     
     public void act() 
     {
@@ -42,8 +44,8 @@ public class Black extends Chackers
         
         if(Greenfoot.mouseClicked(this) && !_clicked && !_clicked2)
         {
-            int x = getX();
-            int y = getY();
+            x = getX();
+            y = getY();
             setImage("black_2.png");
             _clicked = true;
         }
@@ -52,5 +54,11 @@ public class Black extends Chackers
         {
             _clicked2 = false;
         }
-    }    
+    }
+    
+    @Override 
+    public void destroy()
+    {
+        getWorld().removeObject(this);
+    }
 }

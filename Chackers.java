@@ -16,4 +16,9 @@ public class Chackers extends Actor
     {
         
     }
+    
+    public void destroy()
+    {
+        
+    }
 }
