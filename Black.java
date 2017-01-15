@@ -14,6 +14,12 @@ public class Black extends Chackers
      */
     public void act() 
     {
-        // Add your action code here.
+        if(Greenfoot.mouseClicked(this))
+        {
+            int x = getX();
+            int y = getY();
+            setImage("black_2.png");
+            
+        }
     }    
 }

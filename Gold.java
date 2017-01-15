@@ -14,12 +14,12 @@ public class Gold extends Chackers
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
-    {
+    {   
         if(Greenfoot.mouseClicked(this))
         {
             int x = getX();
             int y = getY();
-            getWorld().addObject(new BlackCell(),x+2,y-2);
+            setImage("white_2.png");
             
         }
     }    
