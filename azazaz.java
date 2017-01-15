@@ -15,6 +15,6 @@ public class azazaz extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        // Саня ты долбаеб
     }    
 }
