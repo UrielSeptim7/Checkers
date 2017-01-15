@@ -13,8 +13,9 @@ public class Gold extends Chackers
      * Act - do whatever the Gold wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private boolean _clicked = false;
-    
+   private boolean _clicked = false;
+   private boolean _clicked2 = false;
+   
     public void act() 
     {   
         if (_clicked)
@@ -26,15 +27,21 @@ public class Gold extends Chackers
                 setLocation(_x, _y);
                 setImage("white.png");
                 _clicked = false;
+                _clicked2 = true;
             }
         }
         
-        if(Greenfoot.mouseClicked(this) && !_clicked)
+        if(Greenfoot.mouseClicked(this) && !_clicked && !_clicked2)
         {
             int x = getX();
             int y = getY();
             setImage("white_2.png");
             _clicked = true;
+        }
+        
+        if(Greenfoot.mouseClicked(this))
+        {
+            _clicked2 = false;
         }
    }    
 }
