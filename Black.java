@@ -23,7 +23,17 @@ public class Black extends Chackers
             {
                 int _x = Greenfoot.getMouseInfo().getX();
                 int _y = Greenfoot.getMouseInfo().getY();
-                setLocation(_x, _y);
+                
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 8; j++) {
+                        if ( (_x > 0 + (i *80)) && (_x < 80 + ((i+1) *80)) && (_y > 0 + (j*80)) && (_y < 80 + ((j+1)*80)))
+                        {
+                            setLocation(40 + (i *80), 40 + j*80);
+                        }
+                    }
+                }
+                
                 setImage("black.png");
                 _clicked = false;
                 _clicked2 = true;
