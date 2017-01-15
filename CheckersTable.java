@@ -43,6 +43,8 @@ public class CheckersTable extends World
                 addObject(new Black(),40 + (i *80),40 + 80*(j-1));
             }
         }
+        
+        //addObject(new Gold(),120,40);
     }
     }
 
