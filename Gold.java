@@ -35,7 +35,7 @@ public class Gold extends Chackers
                         {
                             setLocation(40 + (i *80), 40 + j*80);
                             //Далее проверка на шашку соперника
-                            //searchEnemy(x, y, 40 + (i *80), 40 + j*80);
+                            searchEnemy(x, y, 40 + (i *80), 40 + j*80);
                         }
                     }
                 }
@@ -62,12 +62,9 @@ public class Gold extends Chackers
     
     public void searchEnemy(int x, int y, int _x, int _y)
     {
-        if ( !(Math.abs(_x - x) == 80) && !(Math.abs(_y - y) == 80) )
+        if ( (Math.abs(_x - x) == 80) && (Math.abs(_y - y) == 80) )
         {
-            int dx = _x - x;
-            int dy = _y - y;
-            Chackers cheker = (Chackers)getOneObjectAtOffset(dx, dy, Chackers.class);
-            cheker.setLocation(_x + 40, _y + 40);
+            setImage("black.png");
         }
     }
    
